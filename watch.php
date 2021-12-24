@@ -39,7 +39,7 @@
         </div>
         <div class="row body_video">
             <div class="col-sm-12">
-                <video width="100%" height="100%" controls>
+                <video width="100%" height="100%" controls allowfullscreen>
                     <source src="<?php echo $r['content'] ?>" type="video/mp4">
                     <!-- <src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4"> -->
                     Your browser does not support the video tag.
@@ -89,14 +89,86 @@
             </div>
             <div class="col-sm-9">
                 <div class="row">
-                  <?php
-                    $query = mysqli_query($link, "select * from `episode` where `film_id` = '$film_id'");
-                    while($r4 = mysqli_fetch_assoc($query)){
-                  ?>
-                    <a href="?mod=watch&film_id=<?php echo $r4['film_id'] ?>&episode=<?php echo $r4['episode'] ?>" title="<?php echo $r4['name'] ?>" class="button btn-secondary seat"><?php echo $r4['episode_name'] ?></a>
-                  <?php } ?>
+                    <?php
+                        $query = mysqli_query($link, "select * from `episode` where `film_id` = '$film_id'");
+                        while($r4 = mysqli_fetch_assoc($query)){
+                    ?>
+                        <a href="?mod=watch&film_id=<?php echo $r4['film_id'] ?>&episode=<?php echo $r4['episode'] ?>" title="<?php echo $r4['name'] ?>" class="button btn-secondary seat"><?php echo $r4['episode_name'] ?></a>
+                    <?php } ?>
+                    
+                    
+                    <!-- tập phim -->
+                    <ul class="episode__list">
+                        <li class="episode__item">
+                            <a href="" class="episode__link">1</a>
+                        </li>
+
+                        <li class="episode__item">
+                            <a href="" class="episode__link">2</a>
+                        </li>
+
+                        <li class="episode__item">
+                            <a href="" class="episode__link">3</a>
+                        </li>
+
+                        <li class="episode__item">
+                            <a href="" class="episode__link">4</a>
+                        </li>
+
+                        <li class="episode__item">
+                            <a href="" class="episode__link">4</a>
+                        </li>
+
+                        <li class="episode__item">
+                            <a href="" class="episode__link">4</a>
+                        </li>
+
+                        <li class="episode__item">
+                            <a href="" class="episode__link">4</a>
+                        </li>
+
+                        <li class="episode__item">
+                            <a href="" class="episode__link">4</a>
+                        </li>
+
+                        <li class="episode__item">
+                            <a href="" class="episode__link">4</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<style>
+    .episode__list{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;    
+    }
+
+    .episode__item{
+        display: inline-block;
+
+    }
+
+    .episode__link{
+        display: inline-block;
+        line-height: 25px;
+        padding: 0px 20px;
+        background-color: #6f1411;
+        margin: 0px 5px 5px 0px;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: all .2s linear;
+        
+    }
+
+    .episode__link:hover{
+        background-color: #eaab0c;
+        color: #111 !important;
+    }
+
+</style>
