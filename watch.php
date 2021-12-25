@@ -1,9 +1,10 @@
 <?php
-  if (isset($_GET['film_id'])) $film_id = $_GET['film_id'];
-  if (isset($_GET['episode'])) $episode = $_GET['episode'];
-  $sql = "select * from `episode` where `film_id` = '$film_id' and `episode` = '$episode'";
-  $query= mysqli_query($link, $sql);
-  $r=mysqli_fetch_assoc($query);
+    header("Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure");
+    if (isset($_GET['film_id'])) $film_id = $_GET['film_id'];
+    if (isset($_GET['episode'])) $episode = $_GET['episode'];
+    $sql = "select * from `episode` where `film_id` = '$film_id' and `episode` = '$episode'";
+    $query= mysqli_query($link, $sql);
+    $r=mysqli_fetch_assoc($query);
 ?>
 <div id="content">
     <div  id="movie-display">
@@ -93,48 +94,14 @@
                         $query = mysqli_query($link, "select * from `episode` where `film_id` = '$film_id'");
                         while($r4 = mysqli_fetch_assoc($query)){
                     ?>
-                        <a href="?mod=watch&film_id=<?php echo $r4['film_id'] ?>&episode=<?php echo $r4['episode'] ?>" title="<?php echo $r4['name'] ?>" class="button btn-secondary seat"><?php echo $r4['episode_name'] ?></a>
-                    <?php } ?>
+                        
                     
                     
                     <!-- tập phim -->
-                    <ul class="episode__list">
-                        <li class="episode__item">
-                            <a href="" class="episode__link">1</a>
-                        </li>
-
-                        <li class="episode__item">
-                            <a href="" class="episode__link">2</a>
-                        </li>
-
-                        <li class="episode__item">
-                            <a href="" class="episode__link">3</a>
-                        </li>
-
-                        <li class="episode__item">
-                            <a href="" class="episode__link">4</a>
-                        </li>
-
-                        <li class="episode__item">
-                            <a href="" class="episode__link">4</a>
-                        </li>
-
-                        <li class="episode__item">
-                            <a href="" class="episode__link">4</a>
-                        </li>
-
-                        <li class="episode__item">
-                            <a href="" class="episode__link">4</a>
-                        </li>
-
-                        <li class="episode__item">
-                            <a href="" class="episode__link">4</a>
-                        </li>
-
-                        <li class="episode__item">
-                            <a href="" class="episode__link">4</a>
-                        </li>
-                    </ul>
+                    
+                    <a href="?mod=watch&film_id=<?php echo $r4['film_id'] ?>&episode=<?php echo $r4['episode'] ?>" class="episode__link"title="<?php echo $r4['name'] ?>" ><?php echo $r4['episode_name'] ?></a>
+                        <?php } ?>
+                        
                 </div>
             </div>
         </div>
@@ -143,15 +110,10 @@
 
 
 <style>
-    .episode__list{
+    #server-list .col-sm-3{
         display: flex;
         align-items: center;
-        flex-wrap: wrap;    
-    }
-
-    .episode__item{
-        display: inline-block;
-
+        
     }
 
     .episode__link{

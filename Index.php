@@ -1,4 +1,5 @@
 <?php
+  header("Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure");
   require('libs/db.php');
   session_start();
   error_reporting(E_ALL);
