@@ -1,5 +1,5 @@
 <?php
-    header("Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure");
+    
     if (isset($_GET['film_id'])) $film_id = $_GET['film_id'];
     if (isset($_GET['episode'])) $episode = $_GET['episode'];
     $sql = "select * from `episode` where `film_id` = '$film_id' and `episode` = '$episode'";

@@ -31,4 +31,6 @@
     });
     $( ".owl-prev").html('<div class="prev"></div>');
     $( ".owl-next").html('<div class="next"></div>');
+
+
 </script>

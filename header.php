@@ -28,7 +28,7 @@
         </form>
       </div>
   </div>
-  <div class="links"><a rel="nofollow" href="register.php">Đăng ký thành viên</a></div>
+  <div class="links"><a rel="nofollow" href="register.php">Đăng ký</a></div>
 
 <?php } else {?>
 <!-- <div class="login"><a rel="nofollow" href="" name="log_out">Đăng xuất</a></div> -->
@@ -38,23 +38,7 @@
       <span type="text" style="margin-top:10px">&nbsp&nbsp Xin chào <?php echo $_SESSION["username"]?>
   </form>
 <?php } ?>
-<style>
-  #logout{
-    background-position: 0 -41px;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 700;
-    height: 39px;
-    line-height: 30px;
-    text-align: center;
-    width: 97px;
-    /* background-image: url(../images/sprite.png?6); */
-    background: black;
-    color: #fff;
-    margin-right: 10px;
-}
-</style>
+
 
 </div>
 </div>
@@ -122,3 +106,20 @@
   <div class="container">
     <h2 class="title">Xem phim online chất lượng cao</h2></div>
 </div>
+<style>
+  #logout{
+    background-position: 0 -41px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    height: 39px;
+    line-height: 30px;
+    text-align: center;
+    width: 97px;
+    /* background-image: url(../images/sprite.png?6); */
+    background: black;
+    color: #fff;
+    margin-right: 10px;
+  }
+</style>

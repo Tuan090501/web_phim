@@ -24,11 +24,11 @@ body {
   font-size: 12px;
   background: url(../images/bgbody.png) repeat-x #000;
   color: #ddd;
-  display: block !important
+  display: block !important;
 }
 
 #notification-barwrap {
-  margin-bottom: 30px
+  margin-bottom: 30px;
 }
 
 .notification-bar {
@@ -76,11 +76,13 @@ body {
 
 .container {
   width: 980px;
-  margin: 0 auto
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .jwclick, .jwlogo {
-  display: none !important
+  display: none !important;
 }
 
 a {
@@ -107,7 +109,7 @@ option {
   padding: 1px 3px
 }
 
-#chart .st, #movie-hot .listfilm .overlay, #movie-hot .next, #movie-hot .prev, #nav, #nav a, #page-info .like-icon, #page-list .filter .item .btn, #page-watch .action, #page-watch .action div, #search .submit, #sign .logged .bookmark span, #sign .logged .bookmark span i, #sign .logged .logout, #sign .login a, #sign .login-form .submit, .block .blocktitle, .form .control-groups .btn, .form .control-groups .help i, .icon, .list-film li .speaker, .list-film li .stats .liked, .listfilm li .speaker, .server .label i, .tabs .tab.active {
+#chart .st, #movie-hot .listfilm .overlay, #movie-hot .next, #movie-hot .prev, #nav, #nav a, #page-info .like-icon, #page-list .filter .item .btn, #page-watch .action, #page-watch .action div, #search .submit, #sign .logged .bookmark span, #sign .logged .bookmark span i, #sign .logged .logout, #sign .login-form .submit, .block .blocktitle, .form .control-groups .btn, .form .control-groups .help i, .icon, .list-film li .speaker, .list-film li .stats .liked, .listfilm li .speaker, .server .label i, .tabs .tab.active {
   background-image: url(../images/sprite.png?6)
 }
 
@@ -233,7 +235,6 @@ img.captcha-image {
 
 #logo {
   width: 190px;
-  float: left
 }
 
 #logo a {
@@ -246,9 +247,15 @@ img.captcha-image {
 }
 
 #search {
-  float: left;
   margin-top: 12px;
-  margin-left: 5px
+  margin-left: 5px;
+  flex: 1;
+}
+
+
+#search form{
+  display: flex;
+  justify-content: space-between;
 }
 
 #search ul.autocomplete-list {
@@ -293,27 +300,28 @@ img.captcha-image {
 
 #search .keyword {
   background: #2D2D2D;
-  width: 326px;
   border: 1px solid #000;
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  float: left;
-  box-shadow: 0 1px 0 0 #242424;
-  margin-bottom: 5px;
-  margin-left: 2px;
+  box-shadow: 0 1px 1px 0 #242424;
   padding: 0 12px;
-  height: 38px;
-  line-height: 38px;
-  font-size: 12px;
-  color: #8c8c8c
+  font-size: 14px;
+  color: #8c8c8c;
+  flex: 1;  
+  transition: all .2s ease-in-out;
 }
+
+#search .keyword:focus{
+  border-color: #66afe9;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+}
+
 
 #search .submit {
   background-color: #000;
   background-position: 0 0;
   cursor: pointer;
-  float: left;
   height: 40px;
   margin-left: 8px;
   width: 56px;
@@ -325,36 +333,30 @@ img.captcha-image {
 }
 
 #sign {
-  float: left;
-  font-size: 11px;
-  margin-left: 28px;
-  margin-top: 12px
+  height: 63px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#sign>div {
-  float: left
-}
+
 
 #sign .login {
+  line-height: 36px;
   position: relative;
   margin-left: 45px
 }
 
-#sign .login a {
-  background-position: 0 -41px;
-  background-repeat: no-repeat;
-  cursor: pointer;
+#sign .login a{
+  padding: 0px 23px;
   display: inline-block;
-  font-weight: 700;
-  height: 39px;
-  line-height: 30px;
-  text-align: center;
-  width: 97px
+  line-height: 36px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
-#sign .login a:hover {
-  background-position: 0 -81px
-}
+
 
 #sign .login.show a {
   background: #343434;
@@ -434,7 +436,7 @@ img.captcha-image {
 }
 
 #sign .links {
-  line-height: 31px;
+  line-height: 36px;
   margin-left: 31px
 }
 
@@ -776,7 +778,7 @@ img.captcha-image {
 #footer .container {
   width: 980px;
   clear: both;
-  overflow: hidden
+  overflow: hidden;
 }
 
 #footer .desc {
@@ -2688,16 +2690,12 @@ span.page_nav {
     background: 0 0
   }
   #search {
-    display: block;
-    clear: both;
-    padding: 10px 0
+    padding: 10px 0;
   }
   #movie-recommend .col1, #nav .home, #nav2, #page-watch .action, #sign, .serverlist .server .label img {
     display: none
   }
-  #search .keyword {
-    width: 210px
-  }
+  
   #search ul.autocomplete-list {
     width: 300px;
     top: 50px
