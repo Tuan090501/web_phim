@@ -2,7 +2,7 @@
 	$host='localhost';
 	$user='root';
 	$pass='';
-	$db='webxemphim';
+	$db='webphim';
 	//error_reporting(0);//Chan thong bao loi
 
 	$link=mysqli_connect($host,$user,$pass,$db) or die('Lỗi kết nối');

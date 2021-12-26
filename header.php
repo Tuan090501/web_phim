@@ -33,11 +33,15 @@
   <div class="links"><a class ="sign-up" rel="nofollow" href="register.php">Đăng ký</a></div>
 
 <?php } else {?>
-<!-- <div class="login"><a rel="nofollow" href="" name="log_out">Đăng xuất</a></div> -->
-  <form method="post" action="">
+  <span type="text" class = "user">
+    <i class="user-avatar-icon fas fa-user"></i>
+    <span class="user-name"><?php echo $_SESSION["username"]?></span>
+    
+
+
+  <form method="post" action="" class = "user-right">
       <button id="logout" name="log_out">Đăng xuất</button>
-      <a rel="nofollow" href="info_account.php">Thay đổi thông tin</a></div>
-      <span type="text" style="margin-top:10px">&nbsp&nbsp Xin chào <?php echo $_SESSION["username"]?>
+      <a rel="nofollow" href="info_account.php" class = "manage-account">Quản lý tài khoản</a></div>
   </form>
 <?php } ?>
 
@@ -109,19 +113,68 @@
     <h2 class="title">Xem phim online chất lượng cao</h2></div>
 </div>
 <style>
+  
   #logout{
-    background-position: 0 -41px;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 700;
-    height: 39px;
-    line-height: 30px;
+    min-width: 120px;
+    outline: none;
+    border: none;
+    padding: 10px;
     text-align: center;
-    width: 97px;
-    /* background-image: url(../images/sprite.png?6); */
-    background: black;
-    color: #fff;
-    margin-right: 10px;
+    cursor: pointer;
+    line-height: 20px;
+    transition: all .1s linear;
+  }
+
+  .manage-account{
+    line-height: 20px;
+    padding: 10px;
+    color: black;
+    transition: all .1s linear;
+    
+  }
+
+  #logout:hover,
+  .manage-account:hover{
+    background-color: #ccc;
+  }
+
+  .user{
+    line-height: 63px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .user-right{  
+    display: flex;
+    flex-direction: column;
+    transform: scale(0);
+    opacity: 0;
+    position: absolute;
+    top: 56px;
+    right: 0;
+    z-index: 100;
+    background-color: white;
+    transition: all .2s ease-in;
+    transform-origin: 80% top;
+  }
+
+  .user-right::before{
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 12%;
+    border-width: 0px 14px 10px 14px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+  }
+
+  .user:hover .user-right{
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .user-avatar-icon{
+
   }
 </style>
+
