@@ -77,8 +77,10 @@ body {
 .container {
   width: 980px;
   margin: 0 auto;
+}
+
+#header .container{
   display: flex;
-  justify-content: space-between;
 }
 
 .jwclick, .jwlogo {
@@ -109,7 +111,7 @@ option {
   padding: 1px 3px
 }
 
-#chart .st, #movie-hot .listfilm .overlay, #movie-hot .next, #movie-hot .prev, #nav, #nav a, #page-info .like-icon, #page-list .filter .item .btn, #page-watch .action, #page-watch .action div, #search .submit, #sign .logged .bookmark span, #sign .logged .bookmark span i, #sign .logged .logout, #sign .login-form .submit, .block .blocktitle, .form .control-groups .btn, .form .control-groups .help i, .icon, .list-film li .speaker, .list-film li .stats .liked, .listfilm li .speaker, .server .label i, .tabs .tab.active {
+#chart .st, #movie-hot .listfilm .overlay, #movie-hot .next, #movie-hot .prev, #nav, #nav a, #page-info .like-icon, #page-list .filter .item .btn, #page-watch .action, #page-watch .action div, #sign .logged .bookmark span, #sign .logged .bookmark span i, #sign .logged .logout, #sign .login-form .submit, .block .blocktitle, .form .control-groups .btn, .form .control-groups .help i, .icon, .list-film li .speaker, .list-film li .stats .liked, .listfilm li .speaker, .server .label i, .tabs .tab.active {
   background-image: url(../images/sprite.png?6)
 }
 
@@ -125,7 +127,7 @@ option {
   color: green !important
 }
 
-#header, #header a, #logo a {
+#header{
   color: #fff
 }
 
@@ -167,7 +169,7 @@ img.captcha-image {
   width: 16px
 }
 
-#header, #logo, #logo a {
+#header {
   height: 63px
 }
 
@@ -235,6 +237,7 @@ img.captcha-image {
 
 #logo {
   width: 190px;
+  display: inline-block;
 }
 
 #logo a {
@@ -242,13 +245,13 @@ img.captcha-image {
   font-size: 7px;
   letter-spacing: 2px;
   line-height: 31px;
-  padding-left: 128px;
-  width: 70px
+  flex: 1;
+  text-align: center;
+  padding-bottom: 32px;
+  color: #fff;
 }
 
 #search {
-  margin-top: 12px;
-  margin-left: 5px;
   flex: 1;
 }
 
@@ -256,6 +259,8 @@ img.captcha-image {
 #search form{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
 #search ul.autocomplete-list {
@@ -305,9 +310,9 @@ img.captcha-image {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   box-shadow: 0 1px 1px 0 #242424;
-  padding: 0 12px;
+  padding: 10px 12px;
   font-size: 14px;
-  color: #8c8c8c;
+  color: white;
   flex: 1;  
   transition: all .2s ease-in-out;
 }
@@ -317,25 +322,43 @@ img.captcha-image {
   box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
 }
 
+#search .keyword:focus::placeholder{
+  color: rgb(204, 199, 199);
+}
+
 
 #search .submit {
-  background-color: #000;
-  background-position: 0 0;
+  background-color: #2d2d2d;
+  transition: all .2s linear;
   cursor: pointer;
   height: 40px;
   margin-left: 8px;
   width: 56px;
-  border: none
+  border: none;
+  border-radius: 4px;
+}
+
+.search__icon{
+  font-size: 1rem;
+  transition: all .2s linear;
+  color: white;
 }
 
 #search .submit:hover {
-  background-position: -56px 0
+  background-color: #fff;
+  color: #000;
+}
+
+#search .submit:hover .search__icon{
+  color: #000;
 }
 
 #sign {
+  margin-left: 32px;
+  margin-right: 8px;
   height: 63px;
   font-size: 12px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
@@ -345,17 +368,69 @@ img.captcha-image {
 #sign .login {
   line-height: 36px;
   position: relative;
-  margin-left: 45px
 }
 
-#sign .login a{
+#sign .login a,
+#sign .links a{
   padding: 0px 23px;
   display: inline-block;
   line-height: 36px;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s linear;
 }
 
+
+#sign .login a{
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  color: #fff;
+}
+
+#sign .login a:hover{
+  background-color: #23527c;
+}
+
+.sign-up{
+  background-color: #45ccff;
+  color: #273855;
+  position: relative;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.sign-up:hover{
+  background-color: #00a9e8;
+}
+
+.sign-up::before{
+  content: "";
+  display: block;
+  position: absolute;
+  left: -10px;
+  border-color: transparent #45ccff #45ccff transparent;
+  border-style: solid;
+  border-width: 18px 5px 18px 5px;
+  transition: all .2s linear;
+}
+
+.sign-up:hover::before{
+  content: "";
+  display: block;
+  position: absolute;
+  left: -10px;
+  border-color: transparent #00a9e8 #00a9e8 transparent;
+  border-style: solid;
+  border-width: 18px 5px 18px 5px;
+
+}
+
+
+
+#sign .login a{
+  background-color: #1a2b44;
+}
 
 
 #sign .login.show a {
@@ -436,12 +511,7 @@ img.captcha-image {
 }
 
 #sign .links {
-  line-height: 36px;
-  margin-left: 31px
-}
-
-#sign .links a:hover {
-  color: #ccc
+  
 }
 
 #sign .logged {
@@ -608,14 +678,16 @@ img.captcha-image {
   height: 39px
 }
 
-#nav ul li:hover ul.sub-menu {
-  display: block !important;
+#nav ul li:hover ul.sub-menu {  
+  width: 45vw;
+  display: flex;
+  flex-wrap: wrap;
 }
 #logo {
   background-image: url(../images/logo.jpg);
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
+  background-position: left;
 }
 
 #nav .sub-menu li a, #nav2 {
@@ -636,13 +708,13 @@ img.captcha-image {
   font-size: 1em
 }
 
-#nav li {
-  float: left;
-  width: auto;
+ul.container.menu{
+  display: flex;
   list-style: none;
-  background: url(../images/nav_separator.png) left repeat-x;
-  padding-right: 2px;
-  position: relative
+}
+
+#nav li {
+  position: relative;
 }
 
 #nav li.home {
@@ -657,6 +729,7 @@ img.captcha-image {
   padding: 0 20px;
   white-space: nowrap;
   cursor: pointer;
+  font-size: 13px;
 }
 
 #nav2, #nav2 .title a {
@@ -670,15 +743,15 @@ img.captcha-image {
 #nav li.home a {
   background-position: -102px -41px;
   width: 47px;
-  padding: 0
+  padding: 0;
 }
 
 #nav li.home a:hover {
-  background-position: -102px -80px
+  background-position: -102px -80px;
 }
 
 #nav li .sub-menu.show {
-  display: inherit
+  display: inherit;
 }
 
 #nav .sub-menu {
@@ -695,19 +768,15 @@ img.captcha-image {
 }
 
 #nav .sub-menu li {
-  float: left;
-  list-style: none;
-  background: #2C2C2C;
-  margin: 3px 5px
+  width: 33.33333%;
 }
 
 #nav .sub-menu li a {
   background: #2C2C2C;
-  width: 100px;
-  padding: 0 5px;
   text-align: left;
-  text-transform: inherit;
-  font-weight: 400
+  text-transform: capitalize;
+  font-weight: 400;
+  padding: 5px 20px;
 }
 
 #nav .sub-menu li a:hover {
@@ -2615,10 +2684,8 @@ span.page_nav {
   #header {
     background: 0 0
   }
-  #logo a {
-    background-image: url(../images/bgheader.png);
-    background-position: -232px 0
-  }
+  
+
   .container {
     width: 100%
   }
@@ -2685,6 +2752,7 @@ span.page_nav {
     display: block;
     width: 100%;
     font-size: 0
+
   }
   #nav, #nav li, #page-info .info .dinfo {
     background: 0 0

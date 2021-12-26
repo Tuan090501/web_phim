@@ -4,7 +4,9 @@
     <div id="search">
       <form method="post" action="?mod=search">
         <input type="text" autocomplete="off" name="kw" placeholder="Tìm phim..." class="keyword">
-        <button type="submit" class="submit"></button>
+        <button type="submit" class="submit">
+          <i class="search__icon fas fa-search"></i>
+        </button>
       </form>
     </div>
     <div id="sign">
@@ -28,7 +30,7 @@
         </form>
       </div>
   </div>
-  <div class="links"><a rel="nofollow" href="register.php">Đăng ký</a></div>
+  <div class="links"><a class ="sign-up" rel="nofollow" href="register.php">Đăng ký</a></div>
 
 <?php } else {?>
 <!-- <div class="login"><a rel="nofollow" href="" name="log_out">Đăng xuất</a></div> -->
@@ -77,7 +79,7 @@
       while($r=mysqli_fetch_assoc($query)){
     ?>
       <li class=""><a><?php echo $r['name']; ?></a>
-        <ul class="sub-menu" style="width: 260px; display: none;">
+        <ul class="sub-menu">
           <?php
             $handle = $r['handle'];
             $sql = 'select * from `'.$handle.'`';

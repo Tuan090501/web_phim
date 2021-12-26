@@ -15,6 +15,7 @@
   <link href="css/owl.carousel.css" type="text/css" rel="stylesheet">
   <link href="css/owl.theme.default.min.css" type="text/css" rel="stylesheet">
   <link href="css/style.min.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" href="./fonts/fontawesome-free-5.15.4-web/css/all.css">
   <?php
     if (isset($_GET['mod'])) {
       $mod=$_GET['mod'];
